@@ -1,5 +1,7 @@
 package calc;
 
+import java.util.Random;
+
 public class Arithmetic {
 	public static float add(float num1, float num2) {
 		return num1 + num2;
@@ -31,5 +33,22 @@ public class Arithmetic {
 
 	public static float mod(float num1, float num2) {
 		return num1 % num2;
+	}
+
+	public static float random(float num1, float num2) {
+		Random rand = new Random();
+
+		float low = 0;
+		float high = 0;
+
+		if (num1 > num2) {
+			high = num1;
+			low = num2;
+		} else {
+			high = num2;
+			low = num1;
+		}
+
+		return (rand.nextInt((int) (high - low)) + low);
 	}
 }
