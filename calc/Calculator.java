@@ -13,7 +13,6 @@ public class Calculator {
 			String userInput = input.nextLine();
 
 			String[] tokens = userInput.split(" ");
-			// System.out.println(Arrays.toString(tokens));
 
 
 			if (tokens[0].equals("q")){
@@ -28,7 +27,6 @@ public class Calculator {
 			String operator = tokens[0];
 			String num1 = tokens[1];
 			String num2;
-			// System.out.println(operator + num1);
 
 			if (tokens.length < 3){
 				num2 = "0";
@@ -49,32 +47,41 @@ public class Calculator {
 				continue;
 			}
 
-			if (operator.equals("+")){
-				result = Arithmetic.add(num1Float, num2Float);
-			} else if (operator.equals("-")){
-				result = Arithmetic.subtract(num1Float, num2Float);
-			} else if (operator.equals("*")){
-				result = Arithmetic.multiply(num1Float, num2Float);
-			} else if (operator.equals("/")){
-				result = Arithmetic.divide(num1Float, num2Float);
-			} else if (operator.equals("square")){
-				result = Arithmetic.square(num1Float);
-			} else if (operator.equals("cube")){
-				result = Arithmetic.cube(num1Float);
-			} else if (operator.equals("pow")){
-				result = Arithmetic.power(num1Float, num2Float);
-			} else if (operator.equals("mod")){
-				result = Arithmetic.mod(num1Float, num2Float);
-			} else if (operator.equals("random")) {
-				result = Arithmetic.random(num1Float, num2Float);
-			}
-			else {
-				System.out.println("Please provide an operator and two numbers.");
-				continue;
-			}
 
-			System.out.println(result);
-			
+			switch (operator) {
+				case "+":
+					result = Arithmetic.add(num1Float, num2Float);
+					break;
+				case "-":
+					result = Arithmetic.subtract(num1Float, num2Float);
+					break;
+				case "*":
+					result = Arithmetic.multiply(num1Float, num2Float);
+					break;
+				case "/":
+					result = Arithmetic.divide(num1Float, num2Float);
+					break;
+				case "square":
+					result = Arithmetic.square(num1Float);
+					break;
+				case "cube":
+					result = Arithmetic.cube(num1Float);
+					break;
+				case "pow":
+					result = Arithmetic.power(num1Float, num2Float);
+					break;
+				case "mod":
+					result = Arithmetic.mod(num1Float, num2Float);
+					break;
+				case "random":
+					result = Arithmetic.random(num1Float, num2Float);
+					break;
+				default:
+					System.out.println("No equation was found. Please enter an equation such as:" +
+							"* 5 3");
+					continue;
+			}
+		System.out.println(result);
 		}
 	}
 }
