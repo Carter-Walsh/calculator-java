@@ -19,8 +19,7 @@ public class Arithmetic {
 		if (num2 != 0) {
 			return num1 / num2;
 		} else {
-			System.out.println("num2 cannot be equal to zero");
-			return 0;
+			throw new ArithmeticException("dividing a number by zero is not allowed. Make sure num2 is greater than 0.");
 		}
 	}
 
@@ -40,12 +39,11 @@ public class Arithmetic {
 		if (num2 != 0) {
 			return num1 % num2;
 		} else {
-			System.out.println("num2 cannot be equal to zero");
-			return 0;
+			throw new ArithmeticException("modding a number by zero is not allowed");
 		}
 	}
 
-	public static float random(float num1, float num2) {
+	public static float produceRandomNum(float num1, float num2) {
 		Random rand = new Random();
 
 		float low = num1;

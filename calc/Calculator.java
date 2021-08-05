@@ -34,8 +34,7 @@ public class Calculator {
 				num2 = tokens[2];
 			}
 
-			float result=0;
-
+			float result;
 			float num1Float;
 			float num2Float;
 
@@ -49,42 +48,26 @@ public class Calculator {
 
 
 			switch (operator) {
-				case "+":
-					result = Arithmetic.add(num1Float, num2Float);
-					break;
-				case "-":
-					result = Arithmetic.subtract(num1Float, num2Float);
-					break;
-				case "*":
-					result = Arithmetic.multiply(num1Float, num2Float);
-					break;
-				case "/":
-					result = Arithmetic.divide(num1Float, num2Float);
-					break;
-				case "square":
-					result = Arithmetic.square(num1Float);
-					break;
-				case "cube":
-					result = Arithmetic.cube(num1Float);
-					break;
-				case "pow":
-					result = Arithmetic.power(num1Float, num2Float);
-					break;
-				case "mod":
-					result = Arithmetic.mod(num1Float, num2Float);
-					break;
-				case "random":
-					result = Arithmetic.random(num1Float, num2Float);
-					break;
-				default:
+				case "+" -> result = Arithmetic.add(num1Float, num2Float);
+				case "-" -> result = Arithmetic.subtract(num1Float, num2Float);
+				case "*" -> result = Arithmetic.multiply(num1Float, num2Float);
+				case "/" -> result = Arithmetic.divide(num1Float, num2Float);
+				case "square" -> result = Arithmetic.square(num1Float);
+				case "cube" -> result = Arithmetic.cube(num1Float);
+				case "pow" -> result = Arithmetic.power(num1Float, num2Float);
+				case "mod" -> result = Arithmetic.mod(num1Float, num2Float);
+				case "random" -> result = Arithmetic.produceRandomNum(num1Float, num2Float);
+				default -> {
 					System.out.println("No equation was found. Please enter an equation such as:" +
 							"* 5 3");
 					continue;
+				}
 			}
 		System.out.println(result);
 		}
 	}
 }
+
 
 
 
